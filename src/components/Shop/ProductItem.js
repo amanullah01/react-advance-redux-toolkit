@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import Card from "../UI/Card";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = (props) => {
-  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const { id, title, price, description } = props;
 
   const addToCartHandler = () => {
+    /*
     const newTotalQuantity = cart.totalQuantity + 1;
 
     const updatedItems = cart.items.slice(); // create copy via slice to avoid mutating original state
@@ -35,8 +35,15 @@ const ProductItem = (props) => {
       totalQuantity: newTotalQuantity,
       items: updatedItems,
     };
-
     dispatch(cartActions.replaceCart(newCart));
+    */
+    dispatch(
+      cartActions.addItem({
+        id,
+        title,
+        price,
+      })
+    );
   };
 
   return (
