@@ -25,7 +25,10 @@ function App() {
       isInitial = false;
       return;
     }
-    dispatch(sendCartRequest(cart));
+
+    if (cart.isChanged) {
+      dispatch(sendCartRequest(cart));
+    }
   }, [cart, dispatch]);
 
   return (
