@@ -6,7 +6,7 @@ import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
 import Notification from "./components/UI/Notification";
 
-import { sendCartRequest } from "./store/cart-slice";
+import { sendCartRequest } from "./store/cart-action";
 
 let isInitial = true;
 
